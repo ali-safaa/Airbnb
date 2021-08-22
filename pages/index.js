@@ -1,82 +1,48 @@
 import Head from 'next/head'
-
+import Header from "../components/Header"
+import Banner from '../components/Banner'
+import SmallCard from '../components/SmallCard'
+import MediumCard from '../components/MediumCard'
+import LargeCard from '../components/LargeCard'
+import Footer from '../components/Footer'
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
       </Head>
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
-
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+      <Header/>
+      <Banner/>
+      <main className="max-w-7xl mx-auto sm:px-16">
+        <section className="pt-6">
+          <h2 className="text-4xl font-bold pb-5">explore nearby</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
+          <SmallCard image="https://images.pexels.com/photos/9070073/pexels-photo-9070073.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" hour="2 hours" local="london"/>
+          <SmallCard image="https://images.pexels.com/photos/9070073/pexels-photo-9070073.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" hour="2 hours" local="london"/>
+          <SmallCard image="https://images.pexels.com/photos/9070073/pexels-photo-9070073.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" hour="2 hours" local="london"/>
+          <SmallCard image="https://images.pexels.com/photos/9070073/pexels-photo-9070073.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" hour="2 hours" local="london"/>
+          </div>
+        </section>
+        <section>
+          <h2 className="text-4xl font-bold py-8">live any where</h2>
+          <div className="flex space-x-3 overflow-scroll p-3 ml-3">
+          <MediumCard image="https://images.pexels.com/photos/4799967/pexels-photo-4799967.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" title="nature"/>
+          <MediumCard image="https://images.pexels.com/photos/4799967/pexels-photo-4799967.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" title="sea"/>
+          <MediumCard image="https://images.pexels.com/photos/4799967/pexels-photo-4799967.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" title="muntain"/>
+          <MediumCard image="https://images.pexels.com/photos/4799967/pexels-photo-4799967.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" title="wood"/>
+          </div>
+        </section>
+        <LargeCard 
+        image="https://images.pexels.com/photos/1509582/pexels-photo-1509582.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        title="the best place"
+        bio="wichlist by airbnb"
+        buttonText="git inspire"
+        />
       </main>
-
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
+      <Footer />
     </div>
   )
 }
