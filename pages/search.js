@@ -5,23 +5,22 @@ import Footer from '../components/Footer'
 import { useRouter } from 'next/dist/client/router'
 import { format } from 'date-fns';
 import InfoCard from '../components/InfoCard';
-import { DateRange } from 'react-date-range'
-import { toDate } from 'date-fns/esm'
 function Search() {
     const router = useRouter();
     const {location, startDate, endDate, numberGuests} = router.query;
-    const formatStartDate = format(new Date(startDate), "dd MMMM yyyy");
-    const formatEndDate = format(new Date(endDate), "dd MMMM yyyy");
-    const range = `${formatStartDate} - ${formatEndDate}`;
+    // const formatStartDate = format(new Date(startDate), "dd MMMM yyyy");
+    // const formatEndDate = format(new Date(endDate), "dd MMMM yyyy");
+    // const range = `${formatStartDate} - ${formatEndDate}`;
     return (
         <div>
         <Head>
+            <title>search</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
        </Head>
        <Header />
           <main className="flex">
              <section className="flex-grow pt-10 px-6 ">
-                 <p className="text-xs sm:text-sm"> {range} - for {numberGuests} of guest</p>
+                 <p className="text-xs sm:text-sm"> - for {numberGuests} of guest</p>
                  <h1 className="text-lg sm:text-xl font-bold mb-2">stays in {location}</h1>
                  <div className="hidden items-center mb-5 text-gray-500 whitespace-nowrap space-x-2 sm:inline-flex">
                      <p className="button">cancel flexbilty</p>
