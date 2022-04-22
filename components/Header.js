@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
@@ -8,7 +8,7 @@ function Header() {
   const [searchInput, setSearchInput] = useState('');
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  const [numberGuests, setNumberGuests] = useState(1);
+  const [numberGuests, setNumberGuests] = useState(0);
   const router = useRouter();
   const selectionRange = {
     startDate: startDate,
@@ -26,7 +26,7 @@ function Header() {
     router.push({
       pathname: '/search',
       query: {
-        location: searchInput,
+        q: searchInput,
         startDate: startDate.toLocaleString(),
         endDate: endDate.toDateString(),
         numberGuests,
@@ -66,7 +66,7 @@ function Header() {
       </div>
 
       {searchInput && (
-        <div className="flex flex-col col-span-3 mx-auto mt-4">
+        <div className="flex flex-col col-span-3 mx-auto">
           <DateRangePicker
             ranges={[selectionRange]}
             minDate={new Date()}
